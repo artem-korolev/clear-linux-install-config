@@ -28,7 +28,7 @@ targetMedia:
   - name: ${bdevice}2
     fstype: swap
     size: "16G"
-    type: part
+    type: crypt
   - name: ${bdevice}3
     fstype: ext4
     mountpoint: /
