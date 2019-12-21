@@ -75,7 +75,6 @@ targetBundles: [
     c-basic,
     desktop-autostart,
     git,
-    openssh-server,
     os-core,
     os-core-update,
     vim,
@@ -98,6 +97,7 @@ users:
 - login: admin
   username: admin
   admin: true
+  password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
 
 version: 31960
 
