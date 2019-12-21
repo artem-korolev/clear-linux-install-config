@@ -12,7 +12,7 @@
 # switch between aliases if you want to install to an actual block device
 # i.e /dev/sda
 block-devices: [
-   {name: "bdevice", file: "live-desktop.img"}
+   {name: "bdevice", file: "/dev/sda"}
 ]
 
 targetMedia:
@@ -53,7 +53,6 @@ targetMedia:
 bundles: [
     bootloader,
     c-basic,
-    clr-installer-gui,
     desktop-autostart,
     editors,
     gimp,
@@ -65,7 +64,6 @@ bundles: [
     NetworkManager-extras,
     package-utils,
     pidgin,
-    telemetrics,
     vlc,
   ]
 
@@ -83,12 +81,12 @@ targetBundles: [
     vim,
 ]
 
-offline: true
+offline: false
 
 postArchive: false
 postReboot: false
 telemetry: false
-iso: true
+iso: false
 keepImage: true
 autoUpdate: true
 
@@ -100,11 +98,6 @@ users:
 - login: admin
   username: admin
   admin: true
-
-post-install: [
-   {cmd: "${yamlDir}/live-image-post-update-version.py ${chrootDir}"},
-   {cmd: "${yamlDir}/live-desktop-post-install.sh ${chrootDir}"},
-]
 
 version: 0
 
