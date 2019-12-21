@@ -42,9 +42,9 @@ targetMedia:
   - name: ${bdevice}5
     fstype: ext4
     mountpoint: /var
-    size: "50G"  # Fill the test of the image
+    size: "100G"  # Fill the test of the image
     type: crypt
-  - name: ${bdevice}5
+  - name: ${bdevice}6
     fstype: ext4
     mountpoint: /home
     size: "0"  # Fill the test of the image
@@ -99,7 +99,7 @@ users:
   username: admin
   admin: true
 
-version: 0
+version: 31960
 
 #
 # Editor modelines  -  https://www.wireshark.org/tools/modelines.html
