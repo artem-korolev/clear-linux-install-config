@@ -305,9 +305,12 @@ users:
 - login: artem
   username: artem
   admin: false
+  # password is "changeme"
+  password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
 - login: admin
   username: admin
   admin: true
+  # password is "changeme"
   password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
 
 version: 31960
