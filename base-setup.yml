@@ -1,0 +1,98 @@
+hostname: clr-work
+timezone: Europe/Tallinn
+
+#clear-linux-config
+
+# c-basic-offset: 2; tab-width: 2; indent-tabs-mode: nil
+# vi: set shiftwidth=2 tabstop=2 expandtab:
+# :indentSize=2:tabSize=2:noTabs=true:
+
+# File:         live-desktop.yaml
+# Use Case:     Live Image which boots into GUI Desktop
+#               Optionally allows for installing Clear Linux OS
+#               using the GUI clr-installer from the toolbar.
+
+# switch between aliases if you want to install to an actual block device
+# i.e /dev/sda
+block-devices: [
+   {name: "bdevice", file: "/dev/sda"}
+]
+
+targetMedia:
+- name: ${bdevice}
+  size: "10G"
+  type: disk
+  children:
+  - name: ${bdevice}1
+    fstype: vfat
+    mountpoint: /boot
+    size: "250M"
+    type: part
+  - name: ${bdevice}2
+    fstype: swap
+    size: "16G"
+    type: crypt
+  - name: ${bdevice}3
+    fstype: ext4
+    mountpoint: /
+    size: "150G"  # Fill the test of the image
+    type: crypt
+  - name: ${bdevice}4
+    fstype: ext4
+    mountpoint: /opt
+    size: "100G"  # Fill the test of the image
+    type: crypt
+  - name: ${bdevice}5
+    fstype: ext4
+    mountpoint: /var
+    size: "100G"  # Fill the test of the image
+    type: crypt
+  - name: ${bdevice}6
+    fstype: ext4
+    mountpoint: /home
+    size: "0"  # Fill the test of the image
+    type: crypt
+
+bundles: [
+    bootloader,
+    os-core,
+    os-core-update,
+    c-basic,
+    desktop-autostart,
+    editors,
+    gimp,
+    libreoffice,
+    network-basic,
+    NetworkManager-extras,
+    package-utils,
+    git,vim,
+    os-clr-on-clr,
+    ansible,
+  ]
+
+offline: false
+
+postArchive: false
+postReboot: false
+telemetry: false
+iso: false
+keepImage: false
+autoUpdate: true
+
+keyboard: us
+language: en_US.UTF-8
+kernel: kernel-lts2018-dkms
+
+users:
+- login: artem
+  username: artem
+  admin: false
+  # password is "changeme"
+  password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
+- login: admin
+  username: admin
+  admin: true
+  # password is "changeme"
+  password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
+
+version: 31960
