@@ -58,16 +58,7 @@ bundles: [
     os-core,
     os-core-update,
     c-basic,
-    desktop-autostart,
-    editors,
-    gimp,
-    libreoffice,
-    network-basic,
-    NetworkManager-extras,
-    package-utils,
-    git,vim,
     os-clr-on-clr,
-    ansible,
   ]
 
 offline: false
@@ -81,7 +72,7 @@ autoUpdate: true
 
 keyboard: us
 language: en_US.UTF-8
-kernel: kernel-lts2018-dkms
+kernel: kernel-lts2018
 
 users:
 - login: artem
