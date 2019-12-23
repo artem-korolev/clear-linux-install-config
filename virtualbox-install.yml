@@ -68,7 +68,8 @@ postReboot: false
 telemetry: false
 iso: false
 keepImage: false
-autoUpdate: true
+autoUpdate: false
+legacyBios: true
 
 keyboard: us
 language: en_US.UTF-8
