@@ -20,38 +20,29 @@ block-devices: [
 
 targetMedia:
 - name: ${bdevice}
-  size: "10G"
+  size: "0"
   type: disk
   children:
   - name: ${bdevice}1
-    fstype: vfat
-    mountpoint: /boot
-    size: "250M"
-    type: part
-  - name: ${bdevice}2
     fstype: swap
     size: "16G"
-    type: crypt
-  - name: ${bdevice}3
+  - name: ${bdevice}2
     fstype: ext4
     mountpoint: /
     size: "150G"  # Fill the test of the image
-    type: crypt
-  - name: ${bdevice}4
+    options: -O ^64bit
+  - name: ${bdevice}3
     fstype: ext4
     mountpoint: /opt
     size: "100G"  # Fill the test of the image
-    type: crypt
-  - name: ${bdevice}5
+  - name: ${bdevice}4
     fstype: ext4
     mountpoint: /var
     size: "100G"  # Fill the test of the image
-    type: crypt
-  - name: ${bdevice}6
+  - name: ${bdevice}5
     fstype: ext4
     mountpoint: /home
     size: "0"  # Fill the test of the image
-    type: crypt
 
 bundles: [
     bootloader,
@@ -59,6 +50,7 @@ bundles: [
     os-core-update,
     c-basic,
     os-clr-on-clr,
+    desktop-autostart,
   ]
 
 offline: false
@@ -73,7 +65,7 @@ legacyBios: true
 
 keyboard: us
 language: en_US.UTF-8
-kernel: kernel-lts2018
+kernel: kernel-native
 
 users:
 - login: artem
