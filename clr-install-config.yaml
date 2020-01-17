@@ -73,6 +73,7 @@ bundles: [
     vlc,
     git,vim,
     os-clr-on-clr,
+    os-clr-on-clr-dev,
     ansible,
     
     
