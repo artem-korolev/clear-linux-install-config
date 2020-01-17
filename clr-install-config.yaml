@@ -25,7 +25,7 @@ targetMedia:
   - name: ${bdevice}1
     fstype: vfat
     mountpoint: /boot
-    size: "250M"
+    size: "250M"  # EFI BOOT
     type: part
   - name: ${bdevice}2
     fstype: swap
