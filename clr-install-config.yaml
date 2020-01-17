@@ -29,11 +29,11 @@ targetMedia:
     type: part
   - name: ${bdevice}2
     fstype: swap
-    size: "16G"
+    size: "16G"   # SWAP
     type: crypt
   - name: ${bdevice}2
-    fstype: hibernate
-    size: "26G"
+    fstype: ext4
+    size: "26G"   # HIBERNATE
     type: crypt
   - name: ${bdevice}3
     fstype: ext4
