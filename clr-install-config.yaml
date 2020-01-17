@@ -20,7 +20,6 @@ block-devices: [
 
 targetMedia:
 - name: ${bdevice}
-  size: "10G"
   type: disk
   children:
   - name: ${bdevice}1
@@ -32,20 +31,24 @@ targetMedia:
     fstype: swap
     size: "16G"
     type: crypt
+  - name: ${bdevice}2
+    fstype: hibernate
+    size: "26G"
+    type: crypt
   - name: ${bdevice}3
     fstype: ext4
     mountpoint: /
-    size: "150G"  # Fill the test of the image
+    size: "100G"  # ROOT
     type: crypt
   - name: ${bdevice}4
     fstype: ext4
     mountpoint: /opt
-    size: "100G"  # Fill the test of the image
+    size: "100G"  # /OPT
     type: crypt
   - name: ${bdevice}5
     fstype: ext4
     mountpoint: /var
-    size: "100G"  # Fill the test of the image
+    size: "50G"  # Fill the test of the image
     type: crypt
   - name: ${bdevice}6
     fstype: ext4
@@ -115,9 +118,8 @@ desktop-assets,
 desktop-autostart,
 desktop-gnomelibs,
 desktop-i3,
-desktop-kde-libs,
+desktop-kde,
 desktop-locales,
-desktop-lxqt,
 developer-gpu,
 devpkg-R,
 devpkg-base,
@@ -248,7 +250,6 @@ patch,
 perl-basic,
 pidgin,
 polkit,
-postgresql,
 powertop,
 procps-ng,
 pulseaudio,
@@ -280,7 +281,6 @@ webkitgtk,
 wget,
 which,
 wpa_supplicant,
-x11-server,
 xz,
 znc,
 zstd,
@@ -297,9 +297,9 @@ iso: false
 keepImage: false
 autoUpdate: true
 
-keyboard: us
+keyboard: ruwin_alt_sh-UTF-8
 language: en_US.UTF-8
-kernel: kernel-lts2018-dkms
+kernel: kernel-native
 
 users:
 - login: artem
@@ -307,10 +307,10 @@ users:
   admin: false
   # password is "changeme"
   password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
-- login: admin
-  username: admin
+- login: manager
+  username: manager
   admin: true
   # password is "changeme"
   password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
 
-version: 31960
+version: 32110
