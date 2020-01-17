@@ -290,7 +290,6 @@ zstd,
   ]
 
 offline: false
-
 postArchive: false
 postReboot: false
 telemetry: false
@@ -298,9 +297,13 @@ iso: false
 keepImage: false
 autoUpdate: true
 
+
 keyboard: ruwin_alt_sh-UTF-8
 language: en_US.UTF-8
+
+
 kernel: kernel-native
+
 
 users:
 - login: artem
