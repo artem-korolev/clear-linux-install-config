@@ -33,6 +33,7 @@ targetMedia:
     type: crypt
   - name: ${bdevice}3
     fstype: ext4
+    mountpoint: /reserved-for-hibernate
     size: "26G"   # HIBERNATE
     type: crypt
   - name: ${bdevice}4
