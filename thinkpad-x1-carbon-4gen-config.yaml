@@ -33,6 +33,7 @@ targetMedia:
     type: crypt
   - name: ${bdevice}2
     fstype: ext4
+    mountpoint: /hibernate
     size: "26G"   # HIBERNATE
     type: crypt
   - name: ${bdevice}3
@@ -104,7 +105,7 @@ desktop-assets,
 desktop-autostart,
 desktop-gnomelibs,
 desktop-i3,
-desktop-kde,
+desktop-xfce,
 desktop-locales,
 developer-gpu,
 devpkg-R,
