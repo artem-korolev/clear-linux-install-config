@@ -31,12 +31,11 @@ targetMedia:
     fstype: swap
     size: "16G"   # SWAP
     type: crypt
-  - name: ${bdevice}2
+  - name: ${bdevice}3
     fstype: ext4
-    mountpoint: /hibernate
     size: "26G"   # HIBERNATE
     type: crypt
-  - name: ${bdevice}3
+  - name: ${bdevice}4
     fstype: ext4
     mountpoint: /
     size: "0"  # ROOT
