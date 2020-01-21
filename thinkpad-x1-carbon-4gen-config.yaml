@@ -1,0 +1,306 @@
+hostname: home
+timezone: Europe/Tallinn
+
+#clear-linux-config
+
+# c-basic-offset: 2; tab-width: 2; indent-tabs-mode: nil
+# vi: set shiftwidth=2 tabstop=2 expandtab:
+# :indentSize=2:tabSize=2:noTabs=true:
+
+# File:         live-desktop.yaml
+# Use Case:     Live Image which boots into GUI Desktop
+#               Optionally allows for installing Clear Linux OS
+#               using the GUI clr-installer from the toolbar.
+
+# switch between aliases if you want to install to an actual block device
+# i.e /dev/sda
+block-devices: [
+   {name: "bdevice", file: "/dev/sda"}
+]
+
+targetMedia:
+- name: ${bdevice}
+  type: disk
+  children:
+  - name: ${bdevice}1
+    fstype: vfat
+    mountpoint: /boot
+    size: "250M"  # EFI BOOT
+    type: part
+  - name: ${bdevice}2
+    fstype: swap
+    size: "16G"   # SWAP
+    type: crypt
+  - name: ${bdevice}2
+    fstype: ext4
+    size: "26G"   # HIBERNATE
+    type: crypt
+  - name: ${bdevice}3
+    fstype: ext4
+    mountpoint: /
+    size: "0"  # ROOT
+    type: crypt
+
+bundles: [
+    bootloader,
+    c-basic,
+    desktop-autostart,
+    editors,
+    gimp,
+    libreoffice,
+    network-basic,
+    openssh-server,
+    os-core,
+    os-core-update,
+    NetworkManager-extras,
+    package-utils,
+    pidgin,
+    vlc,
+    git,vim,
+    os-clr-on-clr,
+    os-clr-on-clr-dev,
+    ansible,
+    
+    
+    
+    Babel,
+NetworkManager,
+NetworkManager-extras,
+R-basic,
+R-datasets,
+R-extras,
+R-rstudio,
+R-rstudio-server,
+R-stan,
+Remmina,
+Sphinx,
+acpica-unix2,
+alsa-utils,
+ansible,
+aspell,
+aspell-de,
+aspell-es,
+aspell-fr,
+baobab,
+binutils,
+bison,
+boot-encrypted,
+bootloader,
+bootloader-extras,
+c-basic,
+cheese,
+cloud-api,
+clr-network-troubleshooter,
+computer-vision-basic,
+computer-vision-models,
+computer-vision-openvino,
+containers-basic,
+containers-virt,
+curl,
+d-basic,
+desktop,
+desktop-apps,
+desktop-assets,
+desktop-autostart,
+desktop-gnomelibs,
+desktop-i3,
+desktop-kde,
+desktop-locales,
+developer-gpu,
+devpkg-R,
+devpkg-base,
+devpkg-boost,
+devpkg-eigen,
+devpkg-fann,
+devpkg-gflags,
+devpkg-glog,
+devpkg-googletest,
+devpkg-libX11,
+devpkg-libdrm,
+devpkg-libjpeg-turbo,
+devpkg-libpthread-stubs,
+devpkg-mesa,
+devpkg-opencv,
+devpkg-protobuf-c,
+devpkg-tbb,
+devpkg-xorgproto,
+diffutils,
+dnf,
+dpdk,
+editors,
+emacs,
+emacs-x11,
+eog,
+ethtool,
+evince,
+evolution,
+feh,
+file,
+file-roller,
+findutils,
+firefox,
+flatpak,
+flex,
+fonts-basic,
+fuse,
+gdal,
+gdb,
+geary,
+gedit,
+ghostscript,
+gimp,
+git,
+gjs,
+glibc-locale,
+gnome-base-libs,
+gnome-calculator,
+gnome-characters,
+gnome-color-manager,
+gnome-disk-utility,
+gnome-font-viewer,
+gnome-logs,
+gnome-music,
+gnome-photos,
+gnome-screenshot,
+gnome-system-monitor,
+gnome-todo,
+gnome-weather,
+graphviz,
+gstreamer,
+gvim,
+gzip,
+hardware-gpu,
+hardware-printing,
+hardware-uefi,
+htop,
+inkscape,
+intltool,
+iperf,
+ipmitool,
+iproute2,
+iptables,
+java-basic,
+java11-basic,
+java12-basic,
+java13-basic,
+joe,
+jupyter,
+kbd,
+kde-frameworks,
+konsole,
+less,
+lib-imageformat,
+lib-opengl,
+lib-openssl,
+lib-qt5webengine,
+lib-samba,
+libX11client,
+libglib,
+libreoffice,
+libstdcpp,
+libva-utils,
+lightdm,
+lldb,
+llvm,
+llvm8,
+llvm9,
+machine-learning-basic,
+machine-learning-mycroft,
+machine-learning-pytorch,
+machine-learning-tensorflow,
+machine-learning-web-ui,
+make,
+maker-basic,
+maker-gis,
+man-pages,
+minicom,
+nasm,
+nautilus,
+net-tools,
+network-basic,
+openblas,
+openldap,
+openssh-client,
+openssh-server,
+openssl,
+openvswitch,
+os-core,
+os-core-plus,
+os-core-update,
+os-core-webproxy,
+p11-kit,
+package-utils,
+pandoc,
+parallel,
+patch,
+perl-basic,
+pidgin,
+polkit,
+powertop,
+procps-ng,
+pulseaudio,
+pygobject,
+python-data-science,
+python-extras,
+python3-basic,
+python3-tcl,
+qemu-guest-additions,
+qt-basic,
+qt-core,
+rsync,
+seahorse,
+strace,
+sudo,
+sway,
+sxiv,
+sysadmin-basic,
+syslinux,
+tcl-basic,
+thermal_daemon,
+tmux,
+totem,
+tzdata,
+unzip,
+vim,
+vlc,
+webkitgtk,
+wget,
+which,
+wpa_supplicant,
+xz,
+znc,
+zstd,
+games,
+    
+    
+  ]
+
+offline: false
+postArchive: false
+postReboot: false
+telemetry: false
+iso: false
+keepImage: false
+autoUpdate: true
+
+
+keyboard: ruwin_alt_sh-UTF-8
+language: en_US.UTF-8
+
+
+kernel: kernel-native
+
+
+users:
+- login: artem
+  username: artem
+  admin: false
+  # password is "changeme"
+  password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
+- login: manager
+  username: manager
+  admin: true
+  # password is "changeme"
+  password: $6$pNWcrkc7PaEKhw4A$GsnA5AZu.T4tdzF0F0XEvWY6aTEqxwv8s5gOhrBFviBsUX1XIf4rIK4MJHv6oaUQL/IPeyA5CqA0ypA1WCh8Q/
+
+version: 32140
