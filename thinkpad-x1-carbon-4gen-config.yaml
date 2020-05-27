@@ -30,14 +30,17 @@ targetMedia:
   - name: ${bdevice}2
     fstype: swap
     size: "16G"   # SWAP
+    type: part
   - name: ${bdevice}3
     fstype: ext4
     mountpoint: /reserved-for-hibernate
     size: "26G"   # HIBERNATE
+    type: part
   - name: ${bdevice}4
     fstype: ext4
     mountpoint: /
     size: "0"  # ROOT
+    type: part
 
 bundles: [
     bootloader,
