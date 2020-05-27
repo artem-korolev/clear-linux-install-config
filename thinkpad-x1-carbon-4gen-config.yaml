@@ -290,6 +290,7 @@ language: en_US.UTF-8
 
 
 kernel: kernel-native
+version: 0
 
 
 users:
